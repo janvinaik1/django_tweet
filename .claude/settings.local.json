@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(django-admin startproject:*)",
+      "Bash(python -m django:*)",
+      "Bash(python manage.py startapp:*)",
+      "Bash(python manage.py:*)",
+      "Bash(python -c:*)",
+      "Bash(dir /s \"c:\\\\Users\\\\janvi\\\\OneDrive\\\\Desktop\\\\2026_projects\\\\django_project\")"
+    ]
+  }
+}
