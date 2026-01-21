@@ -1,6 +1,23 @@
-# Twitter Clone - Django Web Application
+# Tweet It - Django Twitter Clone
 
-A modern, Twitter-style web application built with Django, featuring a dark theme UI and full CRUD functionality for tweets/posts.
+A full-stack Twitter-like social media application built with Django, deployed to production with PostgreSQL and cloud storage.
+
+**🚀 Live Demo**: [https://tweet-django-laer.onrender.com](https://tweet-django-laer.onrender.com)
+
+[![Django](https://img.shields.io/badge/Django-5.2.10-green.svg)](https://www.djangoproject.com/)
+[![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue.svg)](https://www.postgresql.org/)
+[![Cloudinary](https://img.shields.io/badge/Cloudinary-Media-blue.svg)](https://cloudinary.com/)
+
+## 🎯 Project Highlights
+
+- ✅ **Production Deployed** on Render with Gunicorn and PostgreSQL
+- ✅ **Cloud Storage** integration with Cloudinary for persistent media files
+- ✅ **Security Best Practices**: CSRF protection, authorization checks, input validation
+- ✅ **Performance Optimized**: Query optimization, pagination, static file compression
+- ✅ **Modern Tech Stack**: Django 5.2, Bootstrap 5, WhiteNoise, PostgreSQL
+
+---
 
 ## Features
 
@@ -25,14 +42,38 @@ A modern, Twitter-style web application built with Django, featuring a dark them
 - Image preview in admin panel
 - Flash messages for user feedback
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-- **Backend**: Django 5.1.3
-- **Templates**: Django Templates (Jinja-style syntax)
-- **Forms**: Django Forms & ModelForms
+### Backend
+- **Framework**: Django 5.2.10
+- **Web Server**: Gunicorn (production)
+- **Database**: PostgreSQL (production), SQLite (development)
+- **ORM**: Django ORM with query optimization
+- **Authentication**: Django built-in authentication system
+
+### Frontend
+- **Templates**: Django Template Language (DTL)
 - **Styling**: Bootstrap 5 (dark theme)
-- **Database**: SQLite (default, can be changed)
 - **Icons**: Bootstrap Icons
+- **JavaScript**: Vanilla JS (character counter)
+
+### Infrastructure & Services
+- **Hosting**: Render
+- **Media Storage**: Cloudinary (cloud-based, persistent)
+- **Static Files**: WhiteNoise (compression & caching)
+- **Version Control**: Git & GitHub
+
+### Key Python Packages
+```
+Django==5.2.10
+Pillow==11.0.0
+gunicorn==21.2.0
+whitenoise==6.6.0
+psycopg2-binary==2.9.9
+dj-database-url==2.1.0
+cloudinary==1.41.0
+django-cloudinary-storage==0.3.0
+```
 
 ## Project Structure
 
@@ -269,24 +310,78 @@ python manage.py collectstatic
 ### Issue: Permission denied when editing/deleting
 **Solution**: Ensure you're logged in and trying to edit/delete your own tweets
 
-## Future Enhancements (Optional)
+## 📊 Technical Achievements
 
-- [ ] User profiles with bio and avatar
-- [ ] Follow/unfollow users
-- [ ] Like/favorite tweets
-- [ ] Comment/reply functionality
-- [ ] Hashtag support
-- [ ] Search functionality
-- [ ] Notifications
-- [ ] Direct messaging
-- [ ] Email verification
-- [ ] Password reset
-- [ ] Tweet analytics
+### Database Optimization
+- Implemented `select_related()` to prevent N+1 query problems
+- Reduced feed query from O(n) to O(1) database calls
+- Database connection pooling with `conn_max_age=600`
 
-## License
+### Security Implementation
+- CSRF protection on all forms
+- Authorization middleware (users can only edit/delete own tweets)
+- File upload validation (type, size, extension)
+- Environment-based configuration (SECRET_KEY, DEBUG, DATABASE_URL)
+- Password hashing with PBKDF2
 
-This project is for educational purposes.
+### Production Deployment
+- Configured for production with Gunicorn WSGI server
+- PostgreSQL database with automated migrations
+- Cloudinary integration for persistent media storage (ephemeral filesystem workaround)
+- WhiteNoise for efficient static file serving with compression
+- Environment variable management for secure configuration
 
-## Author
+### Code Quality
+- Clean separation of concerns (Models, Views, Forms)
+- DRY principle with template inheritance
+- Proper error handling with messages framework
+- Input validation at both form and model level
 
-Built with Django following best practices for clean, maintainable code.
+## 📈 Learning Outcomes
+
+This project demonstrates proficiency in:
+- Full-stack web development with Django
+- RESTful CRUD operations
+- User authentication and authorization
+- Database design and ORM usage
+- Cloud deployment and DevOps basics
+- Third-party API integration (Cloudinary)
+- Production best practices and security
+
+## 🚀 Future Enhancements
+
+Potential features to add:
+- [ ] REST API with Django REST Framework
+- [ ] Real-time updates with Django Channels and WebSockets
+- [ ] User profiles with bio and avatars
+- [ ] Social features: likes, retweets, comments
+- [ ] Follow/unfollow system
+- [ ] Hashtag support and trending topics
+- [ ] Full-text search functionality
+- [ ] Email verification and password reset
+- [ ] Rate limiting and spam protection
+- [ ] Unit and integration tests
+- [ ] CI/CD pipeline
+
+## 📖 Documentation
+
+- **[Interview Preparation Guide](INTERVIEW_PREP.md)**: Comprehensive Q&A for technical interviews
+- **[Quick Reference](QUICK_REFERENCE.md)**: Cheat sheet for key concepts and code snippets
+
+## 🤝 Contributing
+
+This is a portfolio project, but suggestions and feedback are welcome! Feel free to open an issue or submit a pull request.
+
+## 📄 License
+
+This project is for educational and portfolio purposes.
+
+## 👤 Author
+
+**Janvi**
+
+Built with Django following industry best practices and deployed to production. This project showcases full-stack development skills, from database design to cloud deployment.
+
+---
+
+**Note for Recruiters**: This is a fully functional, production-deployed application. Live demo available at [tweet-django-laer.onrender.com](https://tweet-django-laer.onrender.com). See [INTERVIEW_PREP.md](INTERVIEW_PREP.md) for detailed technical documentation.
