@@ -27,7 +27,16 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-0(+uodx3g9#8z!a+53c!0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
+# Parse ALLOWED_HOSTS - handle both comma-separated string and wildcard
+ALLOWED_HOSTS_RAW = os.environ.get('ALLOWED_HOSTS', '*')
+if ALLOWED_HOSTS_RAW == '*':
+    ALLOWED_HOSTS = ['*']
+else:
+    ALLOWED_HOSTS = [host.strip() for host in ALLOWED_HOSTS_RAW.split(',')]
+
+# Print for debugging (will show in Render logs)
+print(f"DEBUG MODE: {DEBUG}")
+print(f"ALLOWED_HOSTS: {ALLOWED_HOSTS}")
 
 
 # Application definition
